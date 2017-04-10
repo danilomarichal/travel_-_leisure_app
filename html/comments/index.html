@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Comments</title>
+</head>
+<style>
+.every-trip{
+  height: 400px;
+  width: 300px;
+  text-align: center;
+}
+.form-comment{
+
+  height: 180px;
+  width: 322px;
+  float:left;
+}
+</style>
+
+<body>
+<h1> POSTS</h1>
+
+      {{#posts}}
+      <div class ="every-trip">
+        <h2><a href = "/posts/{{id}}">{{country}}</a></h2>
+        <img src='{{url_image}}' height="200px" width="auto">
+        <h4>{{comment}}</h4>
+        </div>
+      {{/posts}}
+
+  </div>
+</body>
+</html>

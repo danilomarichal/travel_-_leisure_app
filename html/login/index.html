@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+</head>
+<style>
+h1{
+  font-family:helvetica;
+  text-align: center;
+  position:relative;
+  text-decoration: none;
+  margin-top:50px;
+}
+h1:hover{
+  color:#000;
+}
+h1:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+h1:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+form{
+  text-align: center;
+}
+body{
+  background: url("http://i.imgur.com/rH1KzQz.jpg");
+  background-size:cover;
+}
+h3{
+  font-family: helvetica;
+  text-align: center;
+}
+a{
+  display: inline-block;
+  text-align: center;
+}
+
+</style>
+<body>
+<h1>Travel & Leisure</h1>
+<br>
+<br>
+<h3>World's 10 Most Exotic Places <br>and Best Beaches <br>You Can Visit All Year Round</h3>
+<br>
+<br>
+<form>
+  E-mail:<br>
+  <input type="text" placeholder="E-mail" name="email"><br>
+  Password:<br>
+  <input type="text" placeholder="Password" name="password"><br>
+  <br>
+  <button type="submit">Login</button>
+</form>
+<br>
+
+</body>
+<footer>
+</footer>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="../script.js"></script>
+</head>
+<style>
+
+h1{
+  font-family:helvetica;
+  text-align: center;
+  position:relative;
+  text-decoration: none;
+  margin-top:80px;
+  font-size:44px;
+}
+h1:hover{
+  color:#000;
+}
+h1:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+}
+h1:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+form{
+  text-align: center;
+}
+body{
+  background: url("http://i.imgur.com/rH1KzQz.jpg");
+  background-size:cover;
+}
+h3{
+  font-family: helvetica;
+  text-align: center;
+  font-size:32px;
+  text-shadow: -1 0 white;
+}
+ h2{
+  font-family: helvetica;
+  text-align: center;
+  font-size:32px;
+  color:#FF4500;
+
+}
+a{
+  text-decoration: none;
+  text-align: center;
+  color:red;
+}
+.out{
+  margin-left: 48%;
+}
+#invitation{
+  text-align: center;
+  background-color:transparent;
+  color: white;
+  height: 30px;
+  padding: 2.5px;
+}
+button{
+  height:36px;
+  width:150px;
+  border-radius: 15%;
+  font-size:26px;
+  font-family: georgia, serif;
+  background-color: transparent;
+  color: #FF4500;
+  font-weight:bold;
+  border:double black;
+}
+h4{
+  font-family: comic;
+  color:white;
+  text-shadow: -1px 0 black;
+  font-size: 26px;
+  position:relative;
+  text-decoration: none;
+}
+h4:hover{
+  color:#FF4500;
+}
+h4:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color:#FF4500 ;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+}
+h4:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+.links{
+  text-decoration: none;
+}
+.user-email{
+  color: white;
+}
+.every-trip{
+  height: 400px;
+  width: 300px;
+  text-align: center;
+  background-color: black;
+  color:white;
+}
+</style>
+<body>
+<h1>Travel & Leisure</h1>
+<br>
+
+<h3>Share your adventures <br>Take us to the edge <br>of your favorite travel experiences</h3>
+<br>
+<br>
+{{#logged_in}}
+<div>
+<a href="/places" ><h4>Best Travel Destination 2017</h4></a>
+<a href="/posts" ><h4>Post your Travel Experiences</h4></a>
+</div>
+<div class="welcoming">
+<h2>WELCOME<p class="p1"> </p><div class="user-email">{{email}}</div> √</h2>
+</div>
+<div>
+<a href="/comments" ><h3>See all user's travel advise</h3></a>
+<a href="/map" ><h3>Google map</h3></a>
+</div>
+<br>
+<div>
+<a class="out" href="/logout">Logout!</a>
+</div>
+{{/logged_in}}
+
+{{^logged_in}}
+<form action="/login" method="post">
+  E-mail:<br>
+  <input type="text" placeholder="E-mail" name="email"><br>
+  Password:<br>
+  <input type="text" placeholder="Password" name="password"><br>
+  <br>
+  <button type="submit">Login</button>
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+
+ <div id = "invitation">
+  <p>Not a member? <a href="/signup">Sign Up!</a></p>
+</div>
+{{/logged_in}}
+
+</body>
+<footer>
+</footer>
+
+</html>

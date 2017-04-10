@@ -1,0 +1,192 @@
+const express = require('express');
+//const methodOverride = require('method-override')
+const app = express();
+const pgp = require('pg-promise')();
+const mustacheExpress = require('mustache-express');
+const bodyParser = require("body-parser");
+const session = require('express-session');
+
+
+const bcrypt = require('bcrypt');
+const salt = bcrypt.genSalt(10);
+
+app.engine('html', mustacheExpress());
+app.set('view engine', 'html');
+app.set('views', __dirname + '/html');
+app.use("/", express.static(__dirname + '/public'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.use(session({
+  secret: 'TRAVELER',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}));
+var scdb = pgp('postgres://rcoppa@localhost:5432/cities');
+var db = pgp('postgres://rcoppa@localhost:5432/travelers');
+
+
+
+//---------------------------------------------
+//LOGIN/ SIGN UP/ USERS TO DATABASE/ PASSWORD SECURITY
+
+
+//CHECKS THAT USER's LOGIN BECOMES TRUE
+//(CORRECT INFO) TO RENDER WELCOMING PAGE
+app.get('/', function(req,res){
+    if(req.session.user) {
+      let data = {
+        "logged_in": true,
+        "email": req.session.user.email
+      };
+      res.render('index', data);
+
+    } else {
+      res.render('index');
+    }
+ });
+
+//USES USER's ENTERED INFO AND COMPARES
+//EMAIL AND PASSWORD
+//TO ALLOW ACCESS OR DENY IT
+app.post('/login', function(req, res){
+  let data = req.body;
+ db
+  .one("SELECT * FROM users WHERE email = $1", [data.email])
+  .catch(function(){
+    res.send("Authorization Failed: Invalid email/password")
+  })
+  .then(function(user){
+    bcrypt.compare(data.password, user.password_digest, function(err, cmp){
+      if(cmp) {
+        req.session.user = user;
+        res.redirect("/");
+      } else {
+        res.send("Authorization Failed: Invalid email/password");
+      }
+    })
+  })
+});
+
+//RENDERS SIGN UP PAGE
+app.get('/signup', function(req, res){
+  res.render('signup/index');
+});
+
+
+//ASKS FOR REQUIRED INFO IN ORDER TO SIGN UP
+//CREATES NEW USER IN DATABASE
+//AND HASHES PASSWORD IN DATABASE
+app.post('/signup', function(req, res){
+  let data = req.body;
+  console.log(data);
+  bcrypt
+    .hash(data.password, 10, function(err, hash){
+      console.log(data.password)
+      db.none("INSERT INTO users(email, password_digest) VALUES($1, $2)",[data.email, hash])
+      .then(function(){
+        res.send("User created!");
+    });
+  });
+});
+
+//LOGOUT SESSION REDIRECTING TO HOME PAGE
+app.get('/logout', function(req, res){
+  req.session.user = false;
+  res.redirect("/");
+});
+
+//--------------------------------------------------------------------
+
+//GET INFO FROM SECOND DATABASE CITIES
+
+
+//SELECTS LIST OF 10 DESTINATIONS FROM DATABASE "CITIES"
+app.get('/places', function(req, res) {
+  scdb.any("SELECT * FROM places")
+  .then(function(data){
+    var all_plans = {
+      places: data
+    };
+    console.log(data)
+    res.render('places/index', all_plans)
+  });
+});
+
+//SELECTS ONE BY ONE IDs OF ELEMENTS TO BE SHOWN FROM DATABASE "CITIES"
+app.get('/places/:id', function(req, res){
+  var id = req.params.id;
+  scdb.one("SELECT * FROM places WHERE id = " + id).then(function(data){
+    var one_place = {
+      name: data.name,
+      img_url: data.img_url,
+      comment: data.comment
+  };
+   res.render('places/show', one_place)
+  });
+});
+
+//----------------------------------------------------------
+//CREATES GOOGLE MAP ROUTE THROUGH A LINK ON MAIN USER'S PAGE
+app.get('/map',function(req, res){
+res.render('map/index');
+})
+
+//----------------------------------------------
+//ROUTE TO FORM ATTACHED TO LINK ON USER'S LOGGED IN PAGE
+//THAT ALLOWS USERS POSTING NEW TRAVEL EXPERIENCES
+app.get('/posts', function(req, res) {
+  db.any("SELECT * FROM posts")
+  .then(function(data){
+    var all_trips = {
+      trips: data
+    };
+    res.render('posts/index', all_trips);
+  });
+});
+
+//ACTUAL POST ROUTE THAT RETRIEVES POSTS INFO AND SAVES
+//THEM IN DATABASE.
+app.post("/posts/", function(req, res){
+country = req.body.country;
+url_image = req.body.url_image;
+comment = req.body.comment;
+db.one("insert into posts(country, url_image, comment)VALUES($1,$2,$3) returning id",[country,url_image,comment])
+.then(data=>{
+console.log(data.id);
+res.redirect('/posts/'+data.id);
+});
+});
+//------------------------------------------------------
+//ROUTE THAT SENDS ALL POSTS TO COMMENTS INDEX FILE
+app.get('/comments', function(req, res){
+    db.any("SELECT * FROM posts")
+  .then(function(data){
+    let all_posts = {
+      posts:data
+    };
+    res.render('comments/index', all_posts);
+  });
+});
+
+app.get('/posts/:id', function(req, res){
+  var id = req.params.id;
+  db.one("SELECT * FROM posts WHERE id = " + id)
+  .then(function(data){
+    var one_post = {
+      country: data.country,
+      url_image: data.url_image,
+      comment: data.comment
+    };
+    res.render('comments/show', one_post)
+  });
+});
+
+//-----------------------------------------------------------
+
+
+
+app.listen(3000, function () {
+  console.log("Server Running {^-^}");
+});

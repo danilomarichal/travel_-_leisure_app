@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PLaces</title>
+</head>
+<style>
+h1{
+  text-align: center;
+  color: white;
+}
+div{
+text-align: center;
+margin-top: 44px;
+}
+a{
+  color:#FF4500;
+}
+body{
+  background-color: black;
+}
+</style>
+<body>
+<h1>The World's Best Destinations 2017</h1>
+  {{#places}}
+  <div>
+  <h3><a href="/places/{{id}}">{{name}}</a></h3>
+  </div>
+  {{/places}}
+
+
+</body>
+</html>
