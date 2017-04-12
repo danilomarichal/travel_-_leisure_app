@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>posts</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <style>
 
@@ -22,8 +23,7 @@ h4{
 .posting{
   background-color: transparent;
   width:300px;
-  margin-left: 36%;
-  margin-top: 10px;
+  margin-left: 38%;
   height: 300px;
   border-radius: 6px;
   color: red;
@@ -45,7 +45,7 @@ h4{
   color:white;
   font-size: 20px;
 }
-#com-box{
+.comment-box{
   width: 180px;
   border-radius: 5px;
   background-color: transparent;
@@ -65,6 +65,10 @@ body{
         background-color: black;
     }
 }
+.go-back{
+
+margin-left: 50%;
+}
 </style>
 <body>
 <h1>POST YOUR EXPERIENCE HERE</h1>
@@ -74,15 +78,16 @@ body{
 <h4>Tell us why is this place an awesome travel destination</h4>
 <h4>Post!</h4>
 <div id ="picture">
- <div class = "posting"
+ <div class = "posting">
 <form action="/posts" method="post">
-  <h3>Destination:</h3><br>
-  <input class="posting-box" type="text" placeholder="Country name" name="country"><br>
-  <h3>Image:</h3><br>
+  Destination:<br>
+  <input class="posting-box" type="text" placeholder="City, Country" name="country"><br>
+  Image:<br>
   <input class="posting-box" type="text" placeholder="URL" name="url_image"><br>
   <br>
-  <h3>Comments:</h3><br>
-  <textarea id= "com-box" rows="6" colum ="50" type="text" placeholder="Comments" name="comment"></textarea><br>
+  Comments:<br>
+  <input class="comment-box" type="text" placeholder="comments" name="comment"><br>
+  <br>
   <br>
   <button type="submit">POST!</button>
 </form>
@@ -90,6 +95,11 @@ body{
 </div>
 
 <img src='http://i.imgur.com/Morr2vW.png'>
-
+<button class ="go-back">GO BACK</button>
 </body>
+<script>
+$(".go-back").on('click', function(){
+  window.history.go(-1);
+  });
+</script>
 </html>

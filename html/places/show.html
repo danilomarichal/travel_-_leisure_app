@@ -5,21 +5,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <style>
-h1{
+#cover{
+
   text-align: center;
+}
 
-}
-img{
-  margin-left: 30%;
-
-}
-div{
-  margin-left: 30%;
-  height: 100px;
-  width: 500px;
-}
 p{
   font-size: 24px;
+text-align: center;
 
 }
 @media screen and (min-width: 480px) {
@@ -27,14 +20,25 @@ p{
         background-color: white;
     }
 }
+.go-back{
+  margin-left: 48%;
+  width: 100px;
+  background-color:black;
+  color: white;
+  border-radius: 8px;
+}
 </style>
 <body>
 
+
+<div id = "cover">
+<img src="{{img_url}}" height="600px", width="auto">
 <h1>{{name}}</h1>
-<img src="{{img_url}}" width="500px" height="auto">
-<div>
-<p>{{comment}}</p>
 </div>
+<br>
+<hr>
+<p>{{comment}}</p>
+
 <button class = "go-back" type="go-back">GO BACK</button>
 <br>
 <br>

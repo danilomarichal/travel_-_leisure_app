@@ -17,7 +17,13 @@ text-align: center;
   border:transparent ;
 }
 .countries-api{
-text-align: center;
+  margin-left: 32%;
+  background-color:rgba(0, 0, 0, 0.8);
+  width: 500px;
+  height: 300px;
+  border-radius: 10px;
+  padding: 22px;
+  color: white;
 }
 #country-info{
   border-radius: 5px;
@@ -32,15 +38,22 @@ text-align: center;
   background-color: red;
 }
 #first-line{
-  height: 200px;
+  text-align: center;
+height: 200px;
 background-color: black;
 color:white;
+}
+img{
+  height: 400px;
+  width: auto;
+  border-radius: 10px;
 }
 @media screen and (min-width: 480px) {
     body {
         background-color: white;
     }
 }
+
 </style>
 <body>
   <div class = "user-suggestion">
@@ -50,7 +63,7 @@ color:white;
         <h4>{{comment}}</h4>
   </div>
 <hr>
-<div id="first-line" class= "countries-api">
+<div id="first-line">
 <h1>FIND OUT MORE ABOUT IT</h1>
 <h2>Type the name of the country, hit the "Submit" button and we'll give you some more information</h2>
 <input id ="country-info" type="text" placeholder="Country name">

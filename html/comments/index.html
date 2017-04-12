@@ -20,7 +20,9 @@ h3{
   width: 300px;
   text-align: center;
   float:left;
+  margin-left: 9%;
 }
+
 .posts-pic{
   margin-left: 32%;
 }
@@ -29,6 +31,27 @@ h3{
         background-color: white;
     }
 }
+.go-back{
+  text-align: center;
+
+}
+.img {
+  height: 150px;
+  width: 200px;
+  border-radius: 10px;
+  -webkit-transition:all 0.5s ease-out;
+  -moz-transition:all 0.5s ease-out;
+  -ms-transition:all 0.5s ease-out;
+  -o-transition:all 0.5s ease-out;
+  transition:all 0.5s ease-out;
+}
+.img:hover {
+  -webkit-transform:scale(1.8);
+  -moz-transform:scale(1.8);
+  -ms-transform:scale(1.8);
+  -o-transform:scale(1.8);
+  transform:scale(1.8);
+}
 </style>
 
 <body>
@@ -36,16 +59,22 @@ h3{
 
 <img class="posts-pic" src="http://i.imgur.com/G6xr88D.png">
 <h3>Click on them to find out more</h3>
+<button class ="go-back">GO BACK</button>
 
 
       {{#posts}}
         <div class ="every-trip">
         <h2><a href = "/posts/{{id}}">{{country}}</a></h2>
-        <img src='{{url_image}}' height="200px" width="auto">
+        <img class= "img" src='{{url_image}}'>
         <h4>{{comment}}</h4>
         </div>
       {{/posts}}
 
 
 </body>
+<script>
+$(".go-back").on('click', function(){
+  window.history.go(-1);
+  });
+</script>
 </html>

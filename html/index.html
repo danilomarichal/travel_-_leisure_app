@@ -82,6 +82,7 @@ a{
   color: #FF4500;
   font-weight:bold;
   border:double black;
+  margin-left: 44%;
 }
 h4{
   font-family: comic;
@@ -133,6 +134,7 @@ h4:hover:before {
 }
 h5{
   color: white;
+  font-size: 22px;
 }
 .beginning{
   height:30px;
@@ -143,7 +145,21 @@ h5{
   font-size: 20px;
   color: white;
 }
+.log{
+  margin-left:40%;
+  background-color:rgba(0, 0, 0, 0.5);
+  width: 280px;
+  height: 280px;
+  border-radius: 10px;
 
+}
+.updating{
+  margin-left: 40%;
+  background-color:rgba(0, 0, 0, 0.8);
+  width: 280px;
+  height: 180px;
+  border-radius: 10px;
+}
 </style>
 <body>
 <h1>Travel & Leisure</h1>
@@ -164,7 +180,7 @@ h5{
 <a href="/comments" ><h3>See all user's travel advise</h3></a>
 <a href="/map" ><h3>Google map</h3></a>
 </div>
-
+<div class="updating">
 <form action = "/user?_method=PUT" method="post">
 <h5>Update your email:</h5>
 <input type="text" placeholder="New user-email" name="email">
@@ -174,7 +190,7 @@ h5{
 <form action = "/user?_method=DELETE" method="post">
 <h5>Delete Profile: <button class="update">Delete</button></h5>
 </form>
-
+</div>
 <br>
 <div>
 <a class="out" href="/logout">Logout!</a>
@@ -182,11 +198,13 @@ h5{
 {{/logged_in}}
 
 {{^logged_in}}
+<div class = "log">
 <form action="/login" method="post">
   <h5>E-mail:</h5><br>
   <input class = "beginning" type="text" placeholder="E-mail" name="email"><br>
   <h5>Password:</h5><br>
-  <input class = "beginning" type="text" placeholder="Password" name="password"><br>
+  <input class = "beginning" type="password" placeholder="Password" name="password"><br>
+  </div>
   <br>
   <button class="log-in" type="submit">Login</button>
 </form>

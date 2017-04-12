@@ -185,6 +185,36 @@ app.get('/posts/:id', function(req, res){
 });
 
 //-----------------------------------------------------------
+
+
+app.get('/myposts', function(req, res){
+  var data;
+  if(req.session.user){
+       data = {
+      "logged_in": true,
+      "email": req.session.user.email,
+      //"nickname": req.session.user.nickname
+      };
+
+     var user_id = req.session.user.id;
+    db.any("SELECT * FROM posts WHERE user_id = $1", user_id)
+       .then(function(info){
+         console.log(info);
+          user_posts = {
+           myPosts: info,
+           security: data
+          }
+
+        res.render('user/index', user_posts)
+     })
+
+  } else {
+    res.render('user/index');
+  }
+})
+
+
+//UPDATE USER'S EMAIL
  app.put('/user', function(req, res){
    db
      .none("UPDATE users SET email = $1 WHERE email = $2",
@@ -197,7 +227,7 @@ app.get('/posts/:id', function(req, res){
  });
 
 
-
+//DELETE USER PROFINE
 app.delete ('/user', function(req, res){
   console.log(req.session.user.email)
   db.none("DELETE FROM users WHERE email = $1", req.session.user.email)
