@@ -1,30 +1,95 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>posts</title>
 </head>
-<body>
-<h1>Post Your Experience Here</h1>
-<h2>PLease follow these 4 easy steps:
-<ul>
-  <li>Enter City and Country</li>
-  <li>Paste a link to your best shot<p>An easy way is uploading your pic to imgur.com, then copy and paste the provided link.</p></li>
-  <li>Tell us why is this place an awesome travel destination</li>
-  <li>Post!</li>
-</ul>
+<style>
 
+h1{
+  text-align: center;
+  color: white;
+  margin-top: 40px;
+}
+h2{
+  text-align: center;
+  color:white;
+  font-family: tahoma;
+}
+h4{
+  color: white;
+  text-align: center;
+}
+.posting{
+  background-color: transparent;
+  width:300px;
+  margin-left: 36%;
+  margin-top: 10px;
+  height: 300px;
+  border-radius: 6px;
+  color: red;
+  padding: 20px;
+  text-align: center;
+}
+#picture{
+  background-image: url("http://i.imgur.com/YOrRdbh.jpg");
+  background-size: cover;
+  height: 550px;
+  margin-top: 100px;
+}
+.posting-box{
+  height: 20px;
+  width: 180px;
+  border-radius: 5px;
+  background-color: transparent;
+  text-align: center;
+  color:white;
+  font-size: 20px;
+}
+#com-box{
+  width: 180px;
+  border-radius: 5px;
+  background-color: transparent;
+  text-align: center;
+    color:black;
+  font-size: 20px;
+}
+img{
+  width: 400px;
+  margin-left: 36%;
+}
+body{
+  background-color: black;
+}
+@media screen and (min-width: 480px) {
+    body {
+        background-color: black;
+    }
+}
+</style>
+<body>
+<h1>POST YOUR EXPERIENCE HERE</h1>
+<h2>Please, follow these 4 easy steps:</h2>
+<h4>Enter City and Country</h4>
+<h4>Paste a link to your best shot<p>An easy way is uploading your pic to imgur.com, then copy and paste the provided link.</p></h4>
+<h4>Tell us why is this place an awesome travel destination</h4>
+<h4>Post!</h4>
+<div id ="picture">
+ <div class = "posting"
 <form action="/posts" method="post">
-  Destination:<br>
-  <input class="posting-box" type="text" placeholder="City, Country" name="country"><br>
-  Image:<br>
+  <h3>Destination:</h3><br>
+  <input class="posting-box" type="text" placeholder="Country name" name="country"><br>
+  <h3>Image:</h3><br>
   <input class="posting-box" type="text" placeholder="URL" name="url_image"><br>
   <br>
-  Comments:<br>
-  <input class="comment-box" type="text" placeholder="comments" name="comment"><br>
-  <br>
+  <h3>Comments:</h3><br>
+  <textarea id= "com-box" rows="6" colum ="50" type="text" placeholder="Comments" name="comment"></textarea><br>
   <br>
   <button type="submit">POST!</button>
 </form>
+</div>
+</div>
+
+<img src='http://i.imgur.com/Morr2vW.png'>
 
 </body>
 </html>

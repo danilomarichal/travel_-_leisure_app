@@ -2,13 +2,113 @@
 <html>
 <head>
   <title></title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
+<style>
+.user-suggestion{
+text-align: center;
+
+}
+#flag{
+  height: 80px;
+  width: 130px;
+  margin-left:45%;
+  border-radius: 10px;
+  border:transparent ;
+}
+.countries-api{
+text-align: center;
+}
+#country-info{
+  border-radius: 5px;
+  height: 18px;
+  width: 120px;
+
+}
+.bttn{
+  height: 22px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: red;
+}
+#first-line{
+  height: 200px;
+background-color: black;
+color:white;
+}
+@media screen and (min-width: 480px) {
+    body {
+        background-color: white;
+    }
+}
+</style>
 <body>
-<H1>FIND OUT MORE</H1>
+  <div class = "user-suggestion">
+<h1>THE USER'S SUGGESTION</h1>
         <h2>{{country}}</h2>
         <img src='{{url_image}}' height="200px" width="auto">
         <h4>{{comment}}</h4>
-
-
+  </div>
+<hr>
+<div id="first-line" class= "countries-api">
+<h1>FIND OUT MORE ABOUT IT</h1>
+<h2>Type the name of the country, hit the "Submit" button and we'll give you some more information</h2>
+<input id ="country-info" type="text" placeholder="Country name">
+<button class = "bttn" type = "submit">Submit</button>
+</div>
+<br>
+<br>
+<br>
+<br>
+<img id="flag">
+<div class = "countries-api">
+<ul>
+<h3 class="country">Country</h3>
+<h3 class="region">Region</h3>
+<h3 class="code">Code</h3>
+<h3 class="capital">Capital city</h3>
+<h3 class="population">Population</h3>
+<h3 class="languages">Languange/s</h3>
+<h3 class="currency">Currency</h3>
+</ul>
+</div>
 </body>
+<script>
+$('.bttn').click(function(e){
+ event.preventDefault();
+ $input = $('#country-info').val();
+ callAjax();
+})
+
+
+var callAjax = function(){
+    $.ajax({
+        url:"https://restcountries.eu/rest/v2/name/"+$input,
+        method:"GET",
+        success: function(data){
+          console.log(data);
+
+  var country = $input;
+  var code = data[0].alpha2Code;
+  var region = data[0].region;
+  var capital = data[0].capital;
+  var population = data[0].population;
+  var languages1 = data[0].languages[0].name;
+  //var languages2 = data[0].languages[1].name
+  var currency = data[0].currencies[0].name;
+
+
+  $('.country').text("Country: "+data[0].name);
+  $('.code').text("Two letters code: "+code);
+  $('.region').text("Region :"+region);
+  $('.capital').text("The capital city is: "+capital);
+  $('.languages').text("Language/s: "+languages1);
+  $('.population').text("This country has a population of: "+population+" habitants.");
+  $('.currency').text("This country's currency is: "+currency);
+  $('#flag').attr('src',data[0].flag);
+
+    }
+  });
+}
+</script>
 </html>

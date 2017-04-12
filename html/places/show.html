@@ -2,7 +2,7 @@
 <html>
 <head>
   <title></title>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <style>
 h1{
@@ -22,7 +22,11 @@ p{
   font-size: 24px;
 
 }
-
+@media screen and (min-width: 480px) {
+    body {
+        background-color: white;
+    }
+}
 </style>
 <body>
 
@@ -38,5 +42,9 @@ p{
 <br>
 
 </body>
-
+<script>
+$(".go-back").on('click', function(){
+  window.history.go(-1);
+  });
+</script>
 </html>

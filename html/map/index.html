@@ -4,6 +4,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>Places Searchbox</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -91,10 +92,20 @@
       #target {
         width: 345px;
       }
+      .go-back{
+        margin-left: 48%;
+        background-color:red;
+      }
+      @media screen and (min-width: 480px) {
+    body {
+        background-color: white;
+    }
+}
     </style>
   </head>
   <body>
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <button class = "go-back">GO BACK</button>
     <div id="map"></div>
     <script>
       // This example adds a search box to a map, using the Google Place Autocomplete
@@ -172,8 +183,15 @@
         });
       }
 
+
     </script>
+    <script>
+$(".go-back").on('click', function(){
+  window.history.go(-1);
+  });
+</script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8QIXIvqw2iX9xmmFRGOcQ6YepI7ob6rk&libraries=places&callback=initAutocomplete"
          async defer></script>
   </body>
+
 </html>

@@ -2,32 +2,50 @@
 <html>
 <head>
   <title>Comments</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <style>
+h1{
+  text-align: center;
+  background-color: black;
+  color:white;
+}
+h3{
+  text-align: center;
+    background-color: black;
+   color:white;
+}
 .every-trip{
   height: 400px;
   width: 300px;
   text-align: center;
-}
-.form-comment{
-
-  height: 180px;
-  width: 322px;
   float:left;
+}
+.posts-pic{
+  margin-left: 32%;
+}
+@media screen and (min-width: 480px) {
+    body {
+        background-color: white;
+    }
 }
 </style>
 
 <body>
-<h1> POSTS</h1>
+<h1>POSTS</h1>
+
+<img class="posts-pic" src="http://i.imgur.com/G6xr88D.png">
+<h3>Click on them to find out more</h3>
+
 
       {{#posts}}
-      <div class ="every-trip">
+        <div class ="every-trip">
         <h2><a href = "/posts/{{id}}">{{country}}</a></h2>
         <img src='{{url_image}}' height="200px" width="auto">
         <h4>{{comment}}</h4>
         </div>
       {{/posts}}
 
-  </div>
+
 </body>
 </html>

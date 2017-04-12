@@ -5,7 +5,7 @@ const pgp = require('pg-promise')();
 const mustacheExpress = require('mustache-express');
 const bodyParser = require("body-parser");
 const session = require('express-session');
-
+const methodOverride = require('method-override');
 
 const bcrypt = require('bcrypt');
 const salt = bcrypt.genSalt(10);
@@ -15,6 +15,7 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/html');
 app.use("/", express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(methodOverride('_method'))
 app.use(bodyParser.json());
 
 app.use(session({
@@ -184,6 +185,27 @@ app.get('/posts/:id', function(req, res){
 });
 
 //-----------------------------------------------------------
+ app.put('/user', function(req, res){
+   db
+     .none("UPDATE users SET email = $1 WHERE email = $2",
+       [req.body.email, req.session.user.email])
+     .catch(function(){
+       res.send('Failed to update user.');
+     }).then(function(){
+       res.send('User updated.');
+     });
+ });
+
+
+
+app.delete ('/user', function(req, res){
+  console.log(req.session.user.email)
+  db.none("DELETE FROM users WHERE email = $1", req.session.user.email)
+  .then(function(){
+    res.send('user deleted')
+  })
+
+ });
 
 
 
