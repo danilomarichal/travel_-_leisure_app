@@ -1,5 +1,4 @@
 const express = require('express');
-//const methodOverride = require('method-override')
 const app = express();
 const pgp = require('pg-promise')();
 const mustacheExpress = require('mustache-express');
@@ -228,7 +227,7 @@ app.delete ('/user', function(req, res){
 
 
 
-var port = process.env.PORT || 8000
+var port = process.env.PORT || 5000
 
 app.listen(port, function() {
   console.log("Server Running {^-^}");
