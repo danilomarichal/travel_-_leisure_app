@@ -214,20 +214,9 @@ app.get('/myposts', function(req, res){
 })
 
 
-//UPDATE USER'S EMAIL
- app.put('/user', function(req, res){
-   db
-     .none("UPDATE users SET email = $1 WHERE email = $2",
-       [req.body.email, req.session.user.email])
-     .catch(function(){
-       res.send('Failed to update user.');
-     }).then(function(){
-       res.send('User updated.');
-     });
- });
 
 
-//DELETE USER PROFINE
+//DELETE USER PROFILE
 app.delete ('/user', function(req, res){
   console.log(req.session.user.email)
   db.none("DELETE FROM users WHERE email = $1", req.session.user.email)
@@ -239,6 +228,8 @@ app.delete ('/user', function(req, res){
 
 
 
-app.listen(3000, function () {
+var port = process.env.PORT || 8000
+
+app.listen(port, function() {
   console.log("Server Running {^-^}");
 });
