@@ -6,7 +6,7 @@ const mustacheExpress = require('mustache-express');
 const bodyParser = require("body-parser");
 const session = require('express-session');
 const methodOverride = require('method-override');
-
+var pg = require('pg');
 const bcrypt = require('bcrypt');
 const salt = bcrypt.genSalt(10);
 
