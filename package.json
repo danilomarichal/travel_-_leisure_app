@@ -30,12 +30,6 @@
     "promise": "^7.1.1"
   },
   "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/danilomarichal/travel_-_leisure_app.git"
-  },
-  "bugs": {
-    "url": "https://github.com/danilomarichal/travel_-_leisure_app/issues"
-  },
-  "homepage": "https://github.com/danilomarichal/travel_-_leisure_app#readme"
+  "author": "",
+  "license": "ISC"
 }
