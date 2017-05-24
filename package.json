@@ -1,7 +1,7 @@
 {
   "name": "city_travel",
   "version": "1.0.0",
-  "description": "",
+  "description": "Travel app. Users can signup and login, share their travel experiences, suggest other places to visit. Users can find out about the best destinations of the year, find them on the map, and get more info about the country, like: - location - language - currency - population",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -10,6 +10,8 @@
   "engines": {
     "node": "7.6.0"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "bcrypt": "^1.0.2",
     "body-parser": "^1.17.1",
@@ -21,12 +23,19 @@
     "moment": "^2.18.1",
     "mustache": "^2.3.0",
     "mustache-express": "^1.2.4",
+    "node": "0.0.0",
     "override": "0.0.1",
     "pg": "^6.2.3",
     "pg-promise": "^5.6.4",
     "promise": "^7.1.1"
   },
   "devDependencies": {},
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danilomarichal/travel_-_leisure_app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/danilomarichal/travel_-_leisure_app/issues"
+  },
+  "homepage": "https://github.com/danilomarichal/travel_-_leisure_app#readme"
 }
