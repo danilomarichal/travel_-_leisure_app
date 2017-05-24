@@ -25,6 +25,20 @@ app.use(session({
 }));
 //var scdb = pgp('postgres://rcoppa@localhost:5432/cities');
 //var db = pgp('postgres://rcoppa@localhost:5432/travelers');
+var herokuDb = 'postgres://wrerasuydxjhrz:0786436147d54b5295fa7523f5636d189c3af7f10ba256ef4bc0a7784a4e161f@ec2-107-21-108-204.compute-1.amazonaws.com:5432/d211ktdkh2v3fd';
+var db = pgp(herokuDb);
+
+pg.defaults.ssl = true;
+pg.connect(process.env.DATABASE_URL, function(err, client) {
+  if (err) throw err;
+  console.log('Connected to postgres! Getting schemas...');
+
+  client
+    .query('SELECT table_schema,table_name FROM information_schema.tables;')
+    .on('row', function(row) {
+      console.log(JSON.stringify(row));
+    });
+});
 
 
 
