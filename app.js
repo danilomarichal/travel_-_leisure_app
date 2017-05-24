@@ -118,7 +118,7 @@ app.get('/logout', function(req, res){
 
 //SELECTS LIST OF 10 DESTINATIONS FROM DATABASE "CITIES"
 app.get('/places', function(req, res) {
-  scdb.any("SELECT * FROM places")
+  db.any("SELECT * FROM places")
   .then(function(data){
     var all_plans = {
       places: data
@@ -131,7 +131,7 @@ app.get('/places', function(req, res) {
 //SELECTS ONE BY ONE IDs OF ELEMENTS TO BE SHOWN FROM DATABASE "CITIES"
 app.get('/places/:id', function(req, res){
   var id = req.params.id;
-  scdb.one("SELECT * FROM places WHERE id = " + id).then(function(data){
+  db.one("SELECT * FROM places WHERE id = " + id).then(function(data){
     var one_place = {
       name: data.name,
       img_url: data.img_url,
