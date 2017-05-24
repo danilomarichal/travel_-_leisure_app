@@ -23,8 +23,8 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: false }
 }));
-var scdb = pgp('postgres://rcoppa@localhost:5432/cities');
-var db = pgp('postgres://rcoppa@localhost:5432/travelers');
+//var scdb = pgp('postgres://rcoppa@localhost:5432/cities');
+//var db = pgp('postgres://rcoppa@localhost:5432/travelers');
 
 
 
