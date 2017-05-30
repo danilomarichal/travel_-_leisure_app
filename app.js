@@ -85,7 +85,7 @@ app.post('/login', function(req, res){
 
 //RENDERS SIGN UP PAGE
 app.get('/signup', function(req, res){
-  res.render('index');
+  res.render('signup/index');
 });
 
 
@@ -100,7 +100,7 @@ app.post('/signup', function(req, res){
       console.log(data.password)
       db.none("INSERT INTO users(email, password_digest) VALUES($1, $2)",[data.email, hash])
       .then(function(){
-        res.render("login/index");
+        res.render("index");
     });
   });
 });
