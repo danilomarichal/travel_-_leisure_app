@@ -85,7 +85,7 @@ app.post('/login', function(req, res){
 
 //RENDERS SIGN UP PAGE
 app.get('/signup', function(req, res){
-  res.render('signup/index');
+  res.render('index');
 });
 
 
