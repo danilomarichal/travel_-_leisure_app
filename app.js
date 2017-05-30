@@ -100,7 +100,7 @@ app.post('/signup', function(req, res){
       console.log(data.password)
       db.none("INSERT INTO users(email, password_digest) VALUES($1, $2)",[data.email, hash])
       .then(function(){
-        res.send("User created!");
+        res.render("login/index");
     });
   });
 });
