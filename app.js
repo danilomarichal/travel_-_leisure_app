@@ -30,10 +30,12 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: false }
 }));
-var scdb = pgp('postgres://rcoppa@localhost:5432/cities');
+//var scdb = pgp('postgres://rcoppa@localhost:5432/cities');
 //var db = pgp('postgres://rcoppa@localhost:5432/travelers');
+var scHerokuDB ='postgres://csexabaebqealr:359ff961bf428ac1a6677625e816942c5037cc5313c75bdfd299299728c6f062@ec2-23-21-158-253.compute-1.amazonaws.com:5432/de5dpi1aj8qaa1'
 var herokuDb = 'postgres://wrerasuydxjhrz:0786436147d54b5295fa7523f5636d189c3af7f10ba256ef4bc0a7784a4e161f@ec2-107-21-108-204.compute-1.amazonaws.com:5432/d211ktdkh2v3fd';
 var db = pgp(herokuDb);
+var scdb = pgp(scHerokuDB);
 
 pg.defaults.ssl = true;
 pg.connect(process.env.DATABASE_URL, function(err, client) {
