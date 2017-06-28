@@ -1,85 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Home</title>
-  <link rel="stylesheet" href="/stylesheets/styles.css"/>
+  <title>User</title>
+  <link rel="stylesheet" href="/stylesheets/style.css"/>
 <script src="/scripts/jquery.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Antic|Covered+By+Your+Grace|Monoton" rel="stylesheet"></head>
 </head>
-<style>
-h1{
-  font-family:helvetica;
-  text-align: center;
-  position:relative;
-  text-decoration: none;
-  margin-top:80px;
-  font-size:44px;
-}
-h1:hover{
-  color:#000;
-}
-h1:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #000;
-  visibility: hidden;
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transition: all 0.5s ease-in-out 0s;
-  transition: all 0.5s ease-in-out 0s;
-}
-h1:hover:before {
-  visibility: visible;
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
-}
-form{
-  text-align: center;
-}
-body{
-  background: url("http://i.imgur.com/rH1KzQz.jpg");
-  background-size:cover;
-}
-h3{
-  font-family: helvetica;;
-  text-align: center;
-  font-size:32px;
-}
-
-
-button{
-  height:36px;
-  width:150px;
-  border-radius: 12%;
-  font-size:22px;
-  font-family: georgia, serif;
-  background-color: transparent;
-  color: #FF4500;
-  font-weight:bold;
-  border:double black;
-}
-
-</style>
 <body>
-<h1>Travel & Leisure</h1>
-<br>
+<div class="content">
+<video playsinline autoplay loop poster="/videos/Snapshots/Sunset.jpg" class="bgvid">
+            <source src="/videos/MP4/Sunset.mp4" type="video/mp4" />
+        </video>
 
-<h3>Share your adventures <br>Take us to the edge <br>of your favorite travel exeriences</h3>
+<div id="title">
+<h1>Postrip</h1>
+<h3 class="phrase">Share your adventures <br>Take us to the edge <br>of your most exciting travel experiences</h3>
+<h3 class="rate">Rate your Favorites</h3>
+<img id="stars" src="../../stylesheets/images/stars.png">
+</div>
+<div class="welcoming">
+<h1>Sign Up</h1>
+</div>
 <br>
-<br>
-<form action="/signup" method="post">
-  E-mail:<br>
+<form id="comencing" action="/signup" method="post">
+  <p class="signU">E-mail:</p><br>
   <input type="text" placeholder="E-mail" name="email"><br>
-  Password:<br>
+  <p class="signU">Password:</p><br>
   <input type="text" placeholder="Password" name="password"><br>
   <br>
   <button type="submit">Join Us</button>
 </form>
 <br>
+<br>
+<br>
+</div>
+<br>
+<br>
+<footer>
+<hr class="horse">
+<p class="reg">© 2017 Danilo Marichal. All rights reserved.</p>
+</footer>
+
 
 </body>
 <script src="/scripts/script.js"></script>
 </html>
+

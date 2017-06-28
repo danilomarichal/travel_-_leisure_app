@@ -2,77 +2,46 @@
 <html>
 <head>
   <title>Home</title>
-</head>
-<link rel="stylesheet" href="/stylesheets/styles.css"/>
+  <link rel="stylesheet" href="/stylesheets/style.css"/>
 <script src="/scripts/jquery.js"></script>
-<style>
-h1{
-  font-family:helvetica;
-  text-align: center;
-  position:relative;
-  text-decoration: none;
-  margin-top:50px;
-}
-h1:hover{
-  color:#000;
-}
-h1:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #000;
-  visibility: hidden;
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transition: all 0.3s ease-in-out 0s;
-  transition: all 0.3s ease-in-out 0s;
-}
-h1:hover:before {
-  visibility: visible;
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
-}
-form{
-  text-align: center;
-}
-body{
-  background: url("http://i.imgur.com/rH1KzQz.jpg");
-  background-size:cover;
-}
-h3{
-  font-family: helvetica;
-  text-align: center;
-}
-a{
-  display: inline-block;
-  text-align: center;
-}
-@media screen and (min-width: 480px) {
-    body {
-        background-color: white;
-    }
-}
-</style>
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Antic|Covered+By+Your+Grace|Monoton" rel="stylesheet"></head>
+
+</head>
 <body>
-<h1>Travel & Leisure</h1>
+<video playsinline autoplay loop poster="/videos/Snapshots/Sunset.jpg" class="bgvid">
+            <source src="/videos/MP4/Sunset.mp4" type="video/mp4" />
+        </video>
+
+<div id="title">
+<h1>Postrip</h1>
+<h3 class="phrase">Share your adventures <br>Take us to the edge <br>of your most exciting travel experiences</h3>
+<h3 class="rate">Rate your Favorites</h3>
+<img id="stars" src="../../stylesheets/images/stars.png">
 <br>
+</div>
+{{#logged_in}}
+<div class="welcoming">
+<h2 id = "user">WELCOME <div class="user-email">{{email}}</div></h2>
+</div>
+<div id="nav">
+<a class="links" href="/home" ><h3>Home</h3></a>
+<a class="links" href="/user" ><h3>My Profile</h3></a>
+<a class="links" href="/places" ><h3>Best Travel Destination 2017</h3></a>
+<a class="links"  href="/posts" ><h3>Post your Travel Experiences</h3></a>
+<a class="links0" href="/comments" ><h3>See all user's travel advice</h3></a>
+<a class="links0" href="/map" ><h3>Google map</h3></a>
+</div>
 <br>
-<h3>World's 10 Most Exotic Places <br>and Best Beaches <br>You Can Visit All Year Round</h3>
-<br>
-<br>
-<form>
-  E-mail:<br>
-  <input type="text" placeholder="E-mail" name="email"><br>
-  Password:<br>
-  <input type="text" placeholder="Password" name="password"><br>
-  <br>
-  <button type="submit">Login</button>
-</form>
+<div>
+<a class="links0" href="/logout">Logout!</a>
+</div>
 <br>
 
-</body>
+<footer>
+<hr>
+<p id="reg">© 2017 Danilo Marichal. All rights reserved.</p>
+</footer>
+
+</body>>
 <script src="/scripts/script.js"></script>
 </html>

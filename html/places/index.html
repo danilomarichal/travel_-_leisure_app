@@ -2,46 +2,58 @@
 <html>
 <head>
   <title>PLaces</title>
- <link rel="stylesheet" href="/stylesheets/styles.css"/>
-<script src="/scripts/jquery.js"></script></head>
-<style>
-h1{
-  text-align: center;
-  color: white;
-}
-div{
-text-align: center;
-margin-top: 44px;
-}
-a{
-  color:#FF4500;
-}
-body{
-  background-color: black;
-}
-@media screen and (min-width: 480px) {
-    body {
-        background-color: black;
-    }
-}
-.go-back{
-  margin-left: 45%;
-  width: 100px;
-  background-color:white;
-  color: black;
-  border-radius: 8px;
-}
-</style>
-<body>
-<h1>The World's Best Destinations 2017</h1>
+  <link rel="stylesheet" href="/stylesheets/style.css"/>
+<script src="/scripts/jquery.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Antic|Covered+By+Your+Grace|Monoton" rel="stylesheet"></head>
+
+</head>
+<div class="content">
+<video playsinline autoplay loop poster="/videos/Snapshots/Sunset.jpg" class="bgvid">
+            <source src="/videos/MP4/Sunset.mp4" type="video/mp4" />
+        </video>
+
+<div id="title">
+<h1>Postrip</h1>
+<h3 class="phrase">Share your adventures <br>Take us to the edge <br>of your most exciting travel experiences</h3>
+<h3 class="rate">Rate your Favorites</h3>
+<img id="stars" src="../../stylesheets/images/stars.png">
+<br>
+</div>
+<div class="welcoming">
+<h1>Best Travel Destinations 2017</h1>
+</div>
+<div id="nav">
+<ul>
+  <li><a  href="/" >Home</a></li>
+  <li><a  href="/user" >My Profile</a></li>
+  <li><a  href="/places" >Best Travel Destination 2017</a></li>
+  <li><a  href="/posts" >Post your Travel Experiences</a></li>
+  <li><a  href="/comments" >See all user's travel advice</a></li>
+  <li><a  href="/map" >Google map</a></li>
+</ul>
+</div>
+<br>
+<div>
+<a class="links0" href="/logout">Logout!</a>
+</div>
+<br>
+</div>
+<br>
+<br>
+<br>
   {{#places}}
-  <div>
-  <h3><a href="/places/{{id}}">{{name}}</a></h3>
+  <div class="all_places">
+  <h5><a class="best" href="/places/{{id}}">{{name}}</a></h5>
+  <a href="/places/{{id}}"><img class="scale" src="{{img_url}}" height="200px", width="300"></a>
+  <a class="p" href = "/places/{{id}}">Learn more...</a>
   </div>
   {{/places}}
-
-<button class = "go-back" type="go-back">GO BACK</button>
-<img src="">
+<br>
+<br>
+<footer>
+<hr class ="horse">
+<p class="reg">© 2017 Danilo Marichal. All rights reserved.</p>
+</footer>
 </body>
 <script src="/scripts/script.js"></script>
 </html>

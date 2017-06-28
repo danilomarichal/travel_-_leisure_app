@@ -2,75 +2,41 @@
 <html>
 <head>
   <title>Comments</title>
-<link rel="stylesheet" href="/stylesheets/styles.css"/>
-<script src="/scripts/jquery.js"></script></head>
-<style>
-h1{
-  text-align: center;
-  background-color: black;
-  color:white;
-}
-h3{
-  text-align: center;
-    background-color: black;
-   color:white;
-}
-.every-trip{
-  height: 400px;
-  width: 300px;
-  text-align: center;
-  float:left;
-  margin-left: 9%;
-}
-
-.posts-pic{
-  margin-left: 32%;
-}
-@media screen and (min-width: 480px) {
-    body {
-        background-color: white;
-    }
-}
-.go-back{
-  text-align: center;
-
-}
-.img {
-  height: 150px;
-  width: 200px;
-  border-radius: 10px;
-  -webkit-transition:all 0.5s ease-out;
-  -moz-transition:all 0.5s ease-out;
-  -ms-transition:all 0.5s ease-out;
-  -o-transition:all 0.5s ease-out;
-  transition:all 0.5s ease-out;
-}
-.img:hover {
-  -webkit-transform:scale(1.8);
-  -moz-transform:scale(1.8);
-  -ms-transform:scale(1.8);
-  -o-transform:scale(1.8);
-  transform:scale(1.8);
-}
-</style>
+<link rel="stylesheet" href="/stylesheets/style.css"/>
+<script src="/scripts/jquery.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Antic|Covered+By+Your+Grace|Monoton" rel="stylesheet"></head>
 
 <body>
-<h1>POSTS</h1>
+<div class="content">
+<div id="nav">
+<ul>
+  <li><a class="color" href="/" >Home</a></li>
+  <li><a class="color" href="/user" >My Profile</a></li>
+  <li><a class="color" href="/places" >Best Travel Destination 2017</a></li>
+  <li><a class="color" href="/posts" >Post your Travel Experiences</a></li>
+  <li><a class="color" href="/comments" >See all user's travel advice</a></li>
+  <li><a class="color" href="/map" >Google map</a></li>
+</ul>
+</div>
+<h1>Postrip</h1>
 
-<img class="posts-pic" src="http://i.imgur.com/G6xr88D.png">
-<h3>Click on them to find out more</h3>
-<button class ="go-back">GO BACK</button>
-
-
+<h3 class="change">Click on them to find out more</h3>
+<hr>
       {{#posts}}
-        <div class ="every-trip">
-        <h2><a href = "/posts/{{id}}">{{country}}</a></h2>
-        <img class= "img" src='{{url_image}}'>
-        <h4>{{comment}}</h4>
+       <div class="all_posts">
+        <h5><a class="best" href = "/posts/{{id}}">{{country}}</a></h5>
+        <a href = "/posts/{{id}}"><img class="scale" src='{{url_image}}' height="200px", width="300"></a>
+        <a class="p" href = "/posts/{{id}}">Learn more...</a>
         </div>
       {{/posts}}
 
-
+<br>
+<br>
+</div>
+<footer>
+<hr class="horse">
+<p class="reg">© 2017 Danilo Marichal. All rights reserved.</p>
+</footer>
 </body>
 <script src="/scripts/script.js"></script>
 </html>

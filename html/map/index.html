@@ -4,109 +4,39 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>Places Searchbox</title>
-    <link rel="stylesheet" href="/stylesheets/styles.css"/>
-<script src="/scripts/jquery.js"></script><style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-        width: 100%;
-        border:solid black;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      #description {
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-      }
+<link rel="stylesheet" href="/stylesheets/style.css"/>
+<script src="/scripts/jquery.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Antic|Covered+By+Your+Grace|Monoton" rel="stylesheet"></head>
+</head>
+<style>
 
-      #infowindow-content .title {
-        font-weight: bold;
-      }
-
-      #infowindow-content {
-        display: none;
-      }
-
-      #map #infowindow-content {
-        display: inline;
-      }
-
-      .pac-card {
-        margin: 10px 10px 0 0;
-        border-radius: 2px 0 0 2px;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        outline: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-        background-color: #fff;
-        font-family: Roboto;
-      }
-
-      #pac-container {
-        padding-bottom: 12px;
-        margin-right: 12px;
-      }
-
-      .pac-controls {
-        display: inline-block;
-        padding: 5px 11px;
-      }
-
-      .pac-controls label {
-        font-family: Roboto;
-        font-size: 13px;
-        font-weight: 300;
-      }
-
-      #pac-input {
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        margin-left: 20px;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 200px;
-        text-align: center;
-        margin-top: 4%;
-        border: solid black;
-      }
-
-      #pac-input:focus {
-        border-color: #4d90fe;
-      }
-
-      #title {
-        color: #fff;
-        background-color: #4d90fe;
-        font-size: 25px;
-        font-weight: 500;
-        padding: 6px 12px;
-      }
-      #target {
-        width: 345px;
-      }
-      .go-back{
-        margin-left: 48%;
-        background-color:red;
-      }
       @media screen and (min-width: 480px) {
     body {
         background-color: white;
     }
 }
     </style>
-  </head>
-  <body>
+  <body id="gmap">
+  <br>
+<div id="nav">
+<ul>
+  <li><a class="color" href="/" >Home</a></li>
+  <li><a class="color" href="/user" >My Profile</a></li>
+  <li><a class="color" href="/places" >Best Travel Destination 2017</a></li>
+  <li><a class="color" href="/posts" >Post your Travel Experiences</a></li>
+  <li><a class="color" href="/comments" >See all user's travel advice</a></li>
+  <li><a class="color" href="/map" >Google map</a></li>
+</ul>
+</div>
+<br>
+  <h1>Postrip</h1>
+  <br>
+  <h3>Search on Google Map</h3>
+  <br>
     <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-    <button class = "go-back">GO BACK</button>
     <div id="map"></div>
+    <br>
+    <br>
     <script>
       // This example adds a search box to a map, using the Google Place Autocomplete
       // feature. People can enter geographical searches. The search box will return a
@@ -118,8 +48,8 @@
 
       function initAutocomplete() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -33.8688, lng: 151.2195},
-          zoom: 13,
+          center: {lat: 40.7127837, lng: -74.00594130000002},
+          zoom: 10,
           mapTypeId: 'roadmap'
         });
 
@@ -188,6 +118,9 @@
 <script src="/scripts/script.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8QIXIvqw2iX9xmmFRGOcQ6YepI7ob6rk&libraries=places&callback=initAutocomplete"
          async defer></script>
+<footer>
+<hr class ="horse">
+<p class="reg">© 2017 Danilo Marichal. All rights reserved.</p>
+</footer>
   </body>
-
 </html>

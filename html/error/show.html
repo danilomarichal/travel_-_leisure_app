@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>posts</title>
+<link rel="stylesheet" href="/stylesheets/style.css"/>
+<script src="/scripts/jquery.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Antic|Covered+By+Your+Grace|Monoton" rel="stylesheet">
+</head>
+<style>
+@media screen and (min-width: 480px) {
+
+}
+</style>
+<body>
+<div class="content">
+<div class = "err_img">
+<h1>Postrip</h1>
+<img class ="wing" src="images/wing.jpg">
+</div>
+
+<h3 class="error">All Fields Must Be Completed!</h3>
+
+  <div class = "posting">
+    <form method="post" action="/posts">
+     <p class="label"> Destination</p><br>
+      <input class="posting-box" type="text" placeholder="City, Country" name="country"><br>
+      <p class="label">Image Url</p><br>
+      <input class="posting-box" type="text" placeholder="Image url" name="url_image"><br>
+      <br>
+      <p class="label">Comments</p><br>
+      <textarea class="comment-box" row="8" cols="50" type="text" placeholder="Comments" name="comment"></textarea>
+   <br>
+  <br>
+ <button type="submit">POST!</button>
+</form>
+</div>
+</div>
+<footer>
+<hr class="horse">
+<p class="reg">© 2017 Danilo Marichal. All rights reserved.</p>
+</footer>
+</body>
+<script src="/scripts/script.js"></script>
+</html>
+

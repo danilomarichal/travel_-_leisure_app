@@ -1,11 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>User</title>
+  <link rel="stylesheet" href="/stylesheets/style.css"/>
+<script src="/scripts/jquery.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Antic|Covered+By+Your+Grace|Monoton" rel="stylesheet"></head>
 </head>
 <body>
-<h1>HELLO</h1>
+<div class="content">
+<video playsinline autoplay loop poster="/videos/Snapshots/Sunset.jpg" class="bgvid">
+            <source src="/videos/MP4/Sunset.mp4" type="video/mp4" />
+        </video>
+
+<div id="title">
+<h1>Postrip</h1>
+<h3 class="phrase">Share your adventures <br>Take us to the edge <br>of your most exciting travel experiences</h3>
+<h3 class="rate">Rate your Favorites</h3>
+<img id="stars" src="../../stylesheets/images/stars.png">
+<br>
+</div>
+<div class="welcoming">
+<h2 id = "user">WELCOME <div class="user-email">{{email}}</div></h2>
+</div>
+<div id="nav">
+<ul>
+  <li><a  href="/" >Home</a></li>
+  <li><a  href="/user" >My Profile</a></li>
+  <li><a  href="/places" >Best Travel Destination 2017</a></li>
+  <li><a  href="/posts" >Post your Travel Experiences</a></li>
+  <li><a  href="/comments" >See all user's travel advice</a></li>
+  <li><a  href="/map" >Google map</a></li>
+</ul>
+</div>
+<br>
+<div>
+
+</div>
+<br>
+<div class="updating">
+<form action = "/user?_method=PUT" method="post">
+<span class = "upd">Update your email </span><input type="email" placeholder="New user-email" name="email" required>
+<button class="update">Update Email</button>
+</form>
+<!--<form action = "/user?_method=PUT" method="post">
+<span class = "upd">Update your password </span><input type="password" placeholder="New password" name="password" required>
+<button class="update">Update Password</button>
+</form>-->
+</div>
+<br>
+<div class="updating">
+<form action = "/user?_method=DELETE" method="post">
+<span class = "upd">Delete Profile:</span><button class="update">Delete</button></h5>
+</form>
+</div>
+<br>
+<div>
+<a class="links0" href="/logout">Logout!</a>
+</div>
+<br>
+</div>
+<br>
+<br>
+<footer>
+<hr class="horse">
+<p class="reg">© 2017 Danilo Marichal. All rights reserved.</p>
+</footer>
 
 
 </body>
+<script src="/scripts/script.js"></script>
 </html>

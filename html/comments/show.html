@@ -1,71 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
-<link rel="stylesheet" href="/stylesheets/styles.css"/>
-<script src="/scripts/jquery.js"></script></head>
-<style>
-.user-suggestion{
-text-align: center;
+  <title>Post</title>
+<link rel="stylesheet" href="/stylesheets/style.css"/>
+<script src="/scripts/jquery.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Amatic+SC|Antic|Covered+By+Your+Grace|Monoton" rel="stylesheet"></head>
+</head>
 
-}
-#flag{
-  height: 80px;
-  width: 130px;
-  margin-left:45%;
-  border-radius: 10px;
-  border:transparent ;
-}
-.countries-api{
-  margin-left: 32%;
-  background-color:rgba(0, 0, 0, 0.8);
-  width: 500px;
-  height: 300px;
-  border-radius: 10px;
-  padding: 22px;
-  color: white;
-}
-#country-info{
-  border-radius: 5px;
-  height: 18px;
-  width: 120px;
-
-}
-.bttn{
-  height: 22px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: red;
-}
-#first-line{
-  text-align: center;
-height: 200px;
-background-color: black;
-color:white;
-}
-img{
-  height: 400px;
-  width: auto;
-  border-radius: 10px;
-}
-@media screen and (min-width: 480px) {
-    body {
-        background-color: white;
-    }
-}
-
-</style>
 <body>
+<div id="nav">
+<ul>
+  <li><a class="color" href="/" >Home</a></li>
+  <li><a class="color" href="/user" >My Profile</a></li>
+  <li><a class="color" href="/places" >Best Travel Destination 2017</a></li>
+  <li><a class="color" href="/posts" >Post your Travel Experiences</a></li>
+  <li><a class="color" href="/comments" >See all user's travel advice</a></li>
+  <li><a class="color" href="/map" >Google map</a></li>
+</ul>
+</div>
+<br>
+<br>
+<h1 class="destinations">THE USER'S SUGGESTION</h1>
+
+</div>
   <div class = "user-suggestion">
-<h1>THE USER'S SUGGESTION</h1>
-        <h2>{{country}}</h2>
-        <img src='{{url_image}}' height="200px" width="auto">
-        <h4>{{comment}}</h4>
+        <h1>{{country}}</h1>
+        <img class="user_post" src='{{url_image}}' height="200px" width="auto">
+        <p class="user_comment">{{comment}}</p>
   </div>
-<hr>
+<br>
+<h3 class="r">Rate this Postrip!</h3>
+<div class="emojis">
+    <div><img onclick="clickCounter()" id="emo1" class="emo_rating" src="../../images/ok.png"></div>
+     <div><img onclick="clickCounterO()" id="emo2" class="emo_rating" src="../../images/good.png"></div>
+     <div><img onclick="clickCounterT()" id="emo3" class="emo_rating" src="../../images/excellent.png"></div>
+     <div><img onclick="clickCounterTh()" id="emo4" class="emo_rating" src="../../images/love.png"></div>
+    <div><img onclick="clickCounterF()" id="emo5" class="emo_rating" src="../../images/beyond.png"></div>
+</div>
+<br>
+<br>
+<div id ="opinion">
+<span class="value">Ok<div id="sum1" class="sum"></div></span>
+<span class="value">Good<div id="sum2" class="sum"></div></span>
+<span class="value">Great<div id="sum3" class="sum"></div></span>
+<span class="value">Loved it!<div id="sum4" class="sum"></div></span>
+<span class="value">Beyond!!<div id="sum5" class="sum"></div></span>
+</div>
+<br>
+<br>
+<hr class="horse">
 <div id="first-line">
 <h1>FIND OUT MORE ABOUT IT</h1>
-<h2>Type the name of the country, hit the "Submit" button and we'll give you some more information</h2>
+<p class="user_comment">Type the name of the country, hit the "Submit" button and we'll give you some more information</p>
 <input id ="country-info" type="text" placeholder="Country name">
 <button class = "bttn" type = "submit">Submit</button>
 </div>
@@ -76,15 +62,20 @@ img{
 <img id="flag">
 <div class = "countries-api">
 <ul>
-<h3 class="country">Country</h3>
-<h3 class="region">Region</h3>
-<h3 class="code">Code</h3>
-<h3 class="capital">Capital city</h3>
-<h3 class="population">Population</h3>
-<h3 class="languages">Languange/s</h3>
-<h3 class="currency">Currency</h3>
+  <li class = "api" id="country">Country</li>
+  <li class = "api" id="region">Region</li>
+   <li class = "api" id="code">Code</li>
+   <li class = "api" id="capital">Capital city</li>
+   <li class = "api" id="population">Population</li>
+  <li class = "api" id="languages">Languange/s</li>
+  <li class = "api" id="currency">Currency</li>
 </ul>
 </div>
+<br>
+<footer>
+<hr class="horse">
+<p class="reg">© 2017 Danilo Marichal. All rights reserved.</p>
+</footer>
 </body>
 <script src="/scripts/script.js"></script>
 </html>
