@@ -31,6 +31,7 @@
   <li><a  href="/posts" >Post your Travel Experiences</a></li>
   <li><a  href="/comments" >See all user's travel advice</a></li>
   <li><a  href="/map" >Google map</a></li>
+  <li><a class="links0" href="/logout">Logout</a></li>
 </ul>
 </div>
 <br>
@@ -46,13 +47,25 @@
 {{/logged_in}}
 
 {{^logged_in}}
-<div class = "log">
-<form action="/login" method="post">
-  <h5 class="tags">E-mail:</h5>
-  <input class = "beginning" type="text" placeholder="E-mail" name="email">
-  <h5 class="tags">Password:</h5>
-  <input class = "beginning" type="password" placeholder="Password" name="password">
-  </div>
+<h2 id="s">Login</h2>
+<div id="nav">
+<ul>
+  <li><a  href="/" >Home</a></li>
+  <li><a  href="/user" >My Profile</a></li>
+  <li><a  href="/places" >Best Travel Destination 2017</a></li>
+  <li><a  href="/posts" >Post your Travel Experiences</a></li>
+  <li><a  href="/comments" >See all user's travel advice</a></li>
+  <li><a  href="/map" >Google map</a></li>
+  <li><a class="links0" href="/logout">Logout</a></li>
+</ul>
+</div>
+<br>
+<form class="comencing" action="/login" method="post">
+  <p class="signU">E-mail:</p><br>
+  <input class="square" type="text" placeholder="E-mail" name="email">
+  <p class="signU">Password:</p><br>
+  <input class="square" type="password" placeholder="Password" name="password">
+  <br>
   <br>
   <button class="log-in" type="submit">Login</button>
 </form>

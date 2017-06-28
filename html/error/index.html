@@ -16,17 +16,28 @@
 <h1>Postrip</h1>
 <h3 class="phrase">Share your adventures <br>Take us to the edge <br>of your most exciting travel experiences</h3>
 <h3 class="rate">Rate your Favorites</h3>
-<h3 class="error">Wrong Email/Password - Please Try Again</h3>
+<img id="stars" src="../../stylesheets/images/stars.png">
 <br>
+<h3 class="error">Wrong Email/Password - Please Try Again</h3>
 </div>
-{{^logged_in}}
-<div class = "log">
-<form action="/login" method="post">
-  <h5 class="tags">E-mail:</h5>
-  <input class = "beginning" type="text" placeholder="E-mail" name="email">
-  <h5 class="tags">Password:</h5>
-  <input class = "beginning" type="password" placeholder="Password" name="password">
-  </div>
+<div id="nav">
+<ul>
+  <li><a  href="/" >Home</a></li>
+  <li><a  href="/user" >My Profile</a></li>
+  <li><a  href="/places" >Best Travel Destination 2017</a></li>
+  <li><a  href="/posts" >Post your Travel Experiences</a></li>
+  <li><a  href="/comments" >See all user's travel advice</a></li>
+  <li><a  href="/map" >Google map</a></li>
+  <li><a class="links0" href="/logout">Logout</a></li>
+</ul>
+</div>
+<br>
+<form class="comencing" action="/login" method="post">
+  <p class="signU">E-mail:</p><br>
+  <input class="square" type="text" placeholder="E-mail" name="email">
+  <p class="signU">Password:</p><br>
+  <input class="square" type="password" placeholder="Password" name="password">
+  <br>
   <br>
   <button class="log-in" type="submit">Login</button>
 </form>
@@ -37,10 +48,10 @@
 </div>
 <br>
 <footer>
-<hr>
-<p id="reg">© 2017 Danilo Marichal. All rights reserved.</p>
+<hr class="horse">
+<p class="reg">© 2017 Danilo Marichal. All rights reserved.</p>
 </footer>
-{{/logged_in}}
+
 
 </body>
 <script src="/scripts/script.js"></script>

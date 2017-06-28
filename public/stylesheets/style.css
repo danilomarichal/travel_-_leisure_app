@@ -133,12 +133,12 @@ padding-top: 20px;
  font-family: 'Antic', sans-serif;
 }
 .log{
-  position: relative;
-  margin-left:40%;
-  margin-top: -40px;
-  background-color:rgba(0, 0, 0, 0.5);
-  width: 280px;
-  height: 280px;
+  clear: both;
+  height: 96px;
+  font-size: 20px;
+  color: white;
+  font-family: 'Antic', sans-serif;
+  margin-bottom: -15px;
 }
 
 #invitation{
@@ -262,14 +262,14 @@ margin-left: 12%;
 color: #FF4500;
 }
 .links0{
-  position: relative;
+position: relative;
 font-family: 'Lato', sans-serif;
- color:#FF4500 ;
- overflow: hidden;
- text-decoration: none;
+color:#FF4500 ;
+text-decoration: none;
 }
 .links0:hover{
 color: white;
+background-color: rgba(0,0,0,0.3);
 }
 .destinations{
   margin-top: -20px;
@@ -442,7 +442,7 @@ html, #gmap {
         width: auto;
       }
 .error{
-  margin-top: -100px;
+
 }
 .wing{
 margin-top: -200px;
@@ -605,11 +605,40 @@ margin-left: 7px;
 
 }
 .signU{
+  clear: both;
   font-size: 20px;
   color: white;
   font-family: 'Antic', sans-serif;
   margin-bottom: -15px;
 }
-#comencing{
-  margin-top: -40px;
+#s{
+  clear: both;
+  font-family:'Covered By Your Grace', cursive;
+  text-align: center;
+  position:relative;
+  font-size: 70px;
+  text-decoration: none;
+  color: #000;
+  margin: -15px;
+  padding-bottom: 40px;
+}
+.square{
+  background-color: transparent;
+  color:#FF4500;
+  font-weight: bold;
+  font-size: 16px;
+}
+.content{
+  text-align: center;
+
+}
+.invite{
+  margin-top: 200px;
+}
+.mistake{
+  margin-top: -50px;
+}
+.err{
+  position: relative;
+margin-top: 180px;
 }
